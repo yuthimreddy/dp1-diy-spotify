@@ -14,7 +14,7 @@ s3 = boto3.client('s3')
 
 # base URL for accessing the files
 ## UPDATE NEXT LINE
-baseurl = 'http://hva4zb-dp1-spotify.s3-website-us-east-1.amazonaws.com'
+baseurl = 'http://hva4zb-dp1-spotify.s3-website-us-east-1.amazonaws.com/'
 
 # database things
 DBHOST = os.getenv('DBHOST')
@@ -39,11 +39,11 @@ def s3_handler(event):
     data = json.loads(text)
 
     # parse the data fields 1-by-1 from 'data'
-    TITLE = data.get('title', '') 
-    ALBUM = data.get('album', '')
-    ARTIST = data.get('artist', '')
-    YEAR = data.get('year', '')
-    GENRE = data.get('genre', '')
+    TITLE = data.get('title') 
+    ALBUM = data.get('album')
+    ARTIST = data.get('artist')
+    YEAR = data.get('year')
+    GENRE = data.get('genre')
 
     # get the unique ID for the bundle to build the mp3 and jpg urls
     # you get 5 data points in each new JSON file that arrives, but
